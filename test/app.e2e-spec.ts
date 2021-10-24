@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import * as request from 'supertest';
 import { Test } from '@nestjs/testing';
 import { NewsModuleModule } from './../src/news-module/news-module.module';
@@ -17,31 +18,19 @@ describe('AppController (e2e)', () => {
 
   it('/ (GET)', () => {
     return request(app.getHttpServer())
-      .get('/from-last-25-stories')
-      .expect(200)
-      .end((err, res) => {
-        res.body.should.have.this.status(200);
-        res.body.should.be.a('object');
-      });
+      .get('/news/from-last-25-stories')
+      .expect(200);
   });
 
   it('/ (GET)', () => {
     return request(app.getHttpServer())
-      .get('/from-last-600-stories')
-      .expect(200)
-      .end((err, res) => {
-        res.body.should.have.this.status(200);
-        res.body.should.be.a('object');
-      });
+      .get('/news/from-last-600-stories')
+      .expect(200);
   });
 
   it('/ (GET)', () => {
     return request(app.getHttpServer())
-      .get('/from-last-week-stories')
-      .expect(200)
-      .end((err, res) => {
-        res.body.should.have.this.status(200);
-        res.body.should.be.a('object');
-      });
+    .get('/news/from-last-week')
+    .expect(200);
   });
 });
